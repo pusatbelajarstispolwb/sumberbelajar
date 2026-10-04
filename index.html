@@ -185,6 +185,7 @@ footer .inner{max-width:1080px;margin:0 auto;padding:1.5rem 1.25rem;display:flex
               <li>04 E-Library &amp; Repository</li>
               <li>05 Open Educational Resources (OER)</li>
               <li>06 Bukti Pengelolaan &amp; Evaluasi</li>
+              <li>07 Publikasi Dosen<ul><li>01 Administrasi Bisnis</li><li>02 Administrasi Publik</li><li>03 Pariwisata</li></ul></li>
             </ul>
           </li>
         </ul>
@@ -216,18 +217,37 @@ footer .inner{max-width:1080px;margin:0 auto;padding:1.5rem 1.25rem;display:flex
           <li>Gunakan nama lengkap sesuai data akademik agar dosen dapat mengenali Anda.</li>
         </ol>
 
-        <h3 style="margin-top:1.75rem">Mengakses e-Resources Perpusnas</h3>
+        <h3 style="margin-top:1.75rem">Mendaftar anggota Perpusnas dan mengakses e-Resources</h3>
         <ol class="steps">
-          <li>Daftar sebagai anggota Perpustakaan Nasional secara daring.</li>
-          <li>Masuk ke laman e-Resources menggunakan nomor anggota.</li>
+          <li>Buka <a href="https://keanggotaan.perpusnas.go.id" target="_blank" rel="noopener">keanggotaan.perpusnas.go.id</a>, lalu pilih <strong>Daftar</strong>.</li>
+          <li>Baca persyaratan, centang pernyataan persetujuan, lalu pilih <strong>Lanjutkan Pendaftaran</strong>.</li>
+          <li>Isi formulir dengan identitas sesuai KTP, centang pernyataan kebenaran data, lalu pilih <strong>Daftar</strong>.</li>
+          <li>Catat <strong>nomor anggota</strong> dan password yang diperoleh, karena keduanya digunakan untuk masuk.</li>
+          <li>Buka <a href="https://e-resources.perpusnas.go.id" target="_blank" rel="noopener">e-resources.perpusnas.go.id</a>, masukkan nomor anggota dan password, lalu pilih <strong>Masuk</strong>.</li>
           <li>Cari jurnal atau buku elektronik melalui kolom pencarian, lalu unduh sesuai ketentuan penggunaan.</li>
         </ol>
+        <p class="meta">Kendala keanggotaan (tidak dapat masuk, lupa nomor anggota, atau lupa password) dapat disampaikan ke layanan_keanggotaan@mail.perpusnas.go.id.</p>
+
+        <h3 style="margin-top:1.75rem">Mendaftar akun iPusnas</h3>
+        <ol class="steps">
+          <li>Unduh aplikasi <strong>iPusnas</strong> melalui Play Store (Android) atau App Store (iOS), atau buka <a href="https://ipusnas.id" target="_blank" rel="noopener">ipusnas.id</a>.</li>
+          <li>Buka aplikasi, pilih ikon garis tiga di pojok kiri atas, lalu pilih <strong>Login</strong> dan <strong>Continue with Email</strong>.</li>
+          <li>Isi email dan password yang akan didaftarkan. Ketika muncul keterangan <em>not registered</em>, pilih <strong>Register Now</strong>.</li>
+          <li>Lengkapi nama dan nomor telepon, pilih <strong>Save</strong>, lalu setujui <em>License Policy</em> dengan memilih <strong>Accept</strong>.</li>
+          <li>Buka email verifikasi dari hello@ipusnas.id (periksa juga folder spam), lalu pilih <strong>Email Verification</strong>.</li>
+          <li>Akun siap digunakan untuk meminjam dan membaca buku elektronik.</li>
+        </ol>
+        <p class="meta">Tampilan aplikasi dapat sedikit berbeda apabila telah diperbarui oleh pengembang.</p>
       </div>
       <div>
         <h3>Pertanyaan yang sering diajukan</h3>
         <details>
           <summary>Apakah portal ini berbayar?</summary>
           <p>Tidak. Seluruh layanan yang ditautkan dapat digunakan tanpa biaya.</p>
+        </details>
+        <details>
+          <summary>Apakah saya perlu membuat akun?</summary>
+          <p>Portal, repositori, Garuda, SINTA, DOAJ, Google Scholar, BPS, dan JDIH BPK dapat diakses tanpa akun. Google Classroom memerlukan akun Google pribadi, e-Resources memerlukan nomor anggota Perpusnas, dan iPusnas memerlukan akun iPusnas. Setiap mahasiswa mendaftar menggunakan identitasnya masing-masing.</p>
         </details>
         <details>
           <summary>Kelas mata kuliah saya belum tersedia.</summary>
@@ -280,9 +300,11 @@ const CONFIG = {
       nama: 'Administrasi Bisnis',
       aktif: true,
       kelas: [
-        { mk: 'Manajemen Sumber Daya Manusia', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar 14 pertemuan', url: '' },
-        { mk: 'Manajemen Koperasi', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS, bahan ajar 14 pertemuan, dan studi kasus', url: '' },
-        { mk: 'Teori Pengambilan Keputusan', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar (bertahap)', url: '', materi: 'https://drive.google.com/drive/folders/1hlOac7Xy9B6ro0pYb8luCQh5Im9sJAqV' }
+        { mk: 'Kewirausahaan 2', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar 14 pertemuan', url: 'https://classroom.google.com/c/ODczNzUxNzc4ODkx?cjc=kte6bqva', materi: 'https://drive.google.com/drive/folders/1hlOac7Xy9B6ro0pYb8luCQh5Im9sJAqV' },
+        { mk: 'Manajemen Sumber Daya Manusia', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar 14 pertemuan', url: 'https://classroom.google.com/c/ODg4OTY5NDEyMTAz?cjc=jdbtfisu' },
+        { mk: 'Manajemen Koperasi', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS, bahan ajar 14 pertemuan, dan studi kasus', url: 'https://classroom.google.com/c/ODg4OTcwMTg2MDE5?cjc=547vyioi' },
+        { mk: 'Teori Pengambilan Keputusan', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar (bertahap)', url: 'https://classroom.google.com/c/ODczNzUzMTEyNzEz?cjc=4dzeyg2s', materi: 'https://drive.google.com/drive/folders/1hlOac7Xy9B6ro0pYb8luCQh5Im9sJAqV' },
+        { mk: 'Analisis Bisnis', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar (bertahap)', url: 'https://classroom.google.com/c/ODg4OTU1NTg0ODkw?cjc=bgq75j4w' }
       ],
       repo: [
         ['RPS', 'Rencana Pembelajaran Semester mata kuliah percontohan.', 'https://drive.google.com/drive/folders/1KP1-myhkCTPeGVYd8DaKCDW_Oj0mSsMx'],
@@ -295,7 +317,12 @@ const CONFIG = {
     { nama: 'Administrasi Publik', aktif: false, kelas: [], repo: [] },
     { nama: 'Pariwisata', aktif: false, kelas: [], repo: [] }
   ],
-  publikasiDosenUrl: '',
+  publikasiDosenUrl: 'https://drive.google.com/drive/folders/1ZVfSYnId_POA25NLNWjnEO_8N1G-Di9C',
+  publikasiLinks: [
+    ['Daftar Publikasi Dosen STISPOL Wira Bhakti', 'Rekap artikel karya dosen per program studi, beserta tautan unduh PDF dan halaman artikel.', 'https://docs.google.com/spreadsheets/d/1kvAV6xHEmA0WBnlkZN1SeawU0lii9YDYzYWWYpvPukY/edit?usp=sharing', 'Buka daftar'],
+    ['Profil SINTA STISPOL Wira Bhakti', 'Daftar dosen beserta publikasi yang terindeks SINTA, Garuda, dan Google Scholar.', 'https://sinta.kemdiktisaintek.go.id/affiliations/authors/2404', 'Buka SINTA'],
+    ['Jurnal Ilmu Sosial dan Ilmu Politik STISPOL Wira Bhakti', 'Jurnal institusi yang terindeks di Garuda.', 'https://garuda.kemdiktisaintek.go.id/publisher/view/2558', 'Buka Garuda']
+  ],
   portalFolderUrl: 'https://drive.google.com/drive/folders/1Sp-yEfsPOGrXrZ4BvnEwV_cZuGi4M6Cb',
   repoUmum: [
     ['E-Library & Repositori', 'Koleksi buku elektronik, skripsi, dan karya ilmiah.', 'https://drive.google.com/drive/folders/1JTMaSbi7dlQbwYakIiWgmeBF78uX8yOD'],
@@ -313,7 +340,7 @@ const CONFIG = {
     { nama: 'JDIH BPK', jenis: 'Data & peraturan', url: 'https://peraturan.bpk.go.id', desk: 'Basis data peraturan perundang-undangan Indonesia.' }
   ],
   video: {
-    kanalUrl: '',           // tautan kanal YouTube kampus
+    kanalUrl: 'https://www.youtube.com/@stispolwirabhaktidenpasar5510/videos',           // tautan kanal YouTube kampus
     embedId: '',            // ID video YouTube untuk ditampilkan (mis. dQw4w9WgXcQ)
     playlist: [
       { judul: 'Cara Menggunakan Portal Sumber Belajar', url: '' },
@@ -388,7 +415,8 @@ $('#repo-list').innerHTML = CONFIG.prodi.map(p => `
   <div class="prodi">
     <div class="prodi-head"><h3>Koleksi umum</h3><span class="status live">Tersedia</span></div>
     ${CONFIG.repoUmum.map(([t,d,u]) => `<div class="row"><div><h3>${t}</h3><p>${d}</p></div>${btn(u,'Buka folder')}</div>`).join('')}
-    <div class="row"><div><h3>Publikasi Dosen</h3><p>Artikel jurnal, prosiding, dan buku karya dosen.</p></div>${btn(CONFIG.publikasiDosenUrl,'Buka folder')}</div>
+    <div class="row"><div><h3>Publikasi Dosen (berkas)</h3><p>Salinan artikel terbit dosen, disusun per program studi.</p></div>${btn(CONFIG.publikasiDosenUrl,'Buka folder')}</div>
+    ${CONFIG.publikasiLinks.map(([t,d,u,l]) => `<div class="row"><div><h3>${t}</h3><p>${d}</p></div>${btn(u,l)}</div>`).join('')}
     <div class="row"><div><h3>Seluruh isi repositori</h3><p>Folder induk Portal Sumber Pembelajaran Digital.</p></div>${btn(CONFIG.portalFolderUrl,'Buka folder induk')}</div>
   </div>`;
 
