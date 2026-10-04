@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pusat Sumber Belajar Digital — STISPOL Wira Bhakti Denpasar</title>
+<meta name="description" content="Akses terpadu sumber belajar berbasis teknologi informasi bagi mahasiswa dan dosen STISPOL Wira Bhakti Denpasar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#531A16; --maroon-2:#6E2620; --gold:#9C6F24;
+  --bg:#F6EFE2; --surface:#EDE2CE; --line:#DDCDB2;
+  --ink:#2B1A17; --muted:#6B5650; --on-maroon:#F6EFE2;
+  --focus:#9C6F24;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--maroon)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+img{max-width:100%}
+
+/* Header */
+.top{background:var(--maroon);color:var(--on-maroon)}
+.top-inner{max-width:1080px;margin:0 auto;padding:1.25rem 1.25rem 0}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;color:inherit}
+.mark{width:44px;height:44px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-weight:800;font-size:.95rem;flex:none}
+.brand-text strong{display:block;font-size:1.05rem;line-height:1.25}
+.brand-text span{font-size:.85rem;opacity:.85}
+nav.tabs{display:flex;gap:.25rem;overflow-x:auto;margin-top:1.1rem;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;color:inherit;text-decoration:none;padding:.7rem .95rem;font-weight:600;font-size:.92rem;border-radius:8px 8px 0 0;opacity:.85}
+nav.tabs a[aria-current="page"]{background:var(--bg);color:var(--maroon);opacity:1}
+
+main{max-width:1080px;margin:0 auto;padding:2.25rem 1.25rem 3rem}
+section[hidden]{display:none}
+h1{font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 .9rem;font-weight:800;max-width:20ch}
+h2{font-size:1.6rem;line-height:1.2;letter-spacing:-.01em;margin:0 0 .5rem;font-weight:800}
+h3{font-size:1.1rem;line-height:1.3;margin:0 0 .3rem;font-weight:700}
+.lede{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:0 0 2rem}
+p{max-width:68ch}
+
+/* Beranda */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:2.5rem;align-items:start}
+.notice{border-left:4px solid var(--gold);background:var(--surface);padding:1rem 1.15rem;border-radius:0 8px 8px 0;font-size:.95rem}
+.notice strong{display:block;margin-bottom:.15rem}
+.index{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.index li{border-bottom:1px solid var(--line)}
+.index a{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1rem .25rem;text-decoration:none;color:var(--ink)}
+.index a:hover .idx-title{color:var(--maroon)}
+.idx-title{font-weight:700;font-size:1.05rem}
+.idx-desc{grid-column:1;color:var(--muted);font-size:.92rem}
+.idx-count{grid-row:1/span 2;grid-column:2;align-self:center;color:var(--maroon);font-weight:700;font-size:.9rem;white-space:nowrap}
+
+/* Lists & rows */
+.prodi{margin-top:2.25rem}
+.prodi-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem;border-bottom:2px solid var(--ink);padding-bottom:.5rem;margin-bottom:.25rem}
+.status{font-size:.82rem;font-weight:600;padding:.2rem .6rem;border-radius:999px;background:var(--surface);color:var(--muted)}
+.status.live{background:var(--maroon);color:var(--on-maroon)}
+.row{display:grid;grid-template-columns:1fr auto;gap:.35rem 1.25rem;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.row p{margin:.1rem 0 0;color:var(--muted);font-size:.93rem}
+.meta{font-size:.85rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--maroon);color:var(--on-maroon);text-decoration:none;font-weight:700;font-size:.9rem;padding:.6rem 1rem;border-radius:8px;white-space:nowrap;border:0;font-family:inherit}
+.btn:hover{background:var(--maroon-2)}
+.btn.off{background:var(--surface);color:var(--muted);cursor:default;font-weight:600}
+.empty{padding:1.1rem 0;color:var(--muted);border-bottom:1px solid var(--line)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem}
+.res{padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.res a.res-name{font-weight:700;font-size:1.05rem;text-decoration:none}
+.res a.res-name:hover{text-decoration:underline}
+.res p{margin:.25rem 0 0;color:var(--muted);font-size:.93rem}
+.res .note{font-size:.85rem;color:var(--ink);margin-top:.35rem}
+
+.filter{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1rem}
+.filter button{font-family:inherit;font-size:.88rem;font-weight:600;padding:.45rem .85rem;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.tree{background:var(--surface);border-radius:8px;padding:1rem 1.15rem;overflow-x:auto;font-size:.92rem;line-height:1.8}
+.tree ul{list-style:none;margin:0;padding-left:1.15rem;border-left:1px solid var(--line)}
+.tree>ul{padding-left:0;border:0}
+
+ol.steps{padding-left:1.25rem;margin:.5rem 0 0}
+ol.steps li{margin-bottom:.45rem;max-width:64ch}
+details{border-bottom:1px solid var(--line);padding:.85rem 0}
+summary{cursor:pointer;font-weight:700}
+details p{margin:.5rem 0 0;color:var(--muted)}
+
+.video-frame{aspect-ratio:16/9;background:var(--surface);border-radius:8px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:1.5rem;max-width:760px}
+.video-frame iframe{width:100%;height:100%;border:0;border-radius:8px}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .inner{max-width:1080px;margin:0 auto;padding:1.5rem 1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem}
+
+@media (max-width:760px){
+  .hero,.grid2{grid-template-columns:1fr;gap:1.5rem}
+  .row{grid-template-columns:1fr}
+  .row .btn{justify-self:start}
+  main{padding-top:1.75rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  section:not([hidden]){animation:in .25s ease-out}
+  @keyframes in{from{opacity:0}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="#beranda">
+      <span class="mark" aria-hidden="true">WB</span>
+      <span class="brand-text">
+        <strong>Pusat Sumber Belajar Digital</strong>
+        <span>STISPOL Wira Bhakti Denpasar</span>
+      </span>
+    </a>
+    <nav class="tabs" aria-label="Menu utama">
+      <a href="#beranda">Beranda</a>
+      <a href="#elearning">E-Learning</a>
+      <a href="#perpustakaan">Perpustakaan Digital</a>
+      <a href="#repositori">Repositori</a>
+      <a href="#video">Video Pembelajaran</a>
+      <a href="#panduan">Panduan &amp; Layanan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- BERANDA -->
+  <section id="beranda" aria-labelledby="h-beranda">
+    <div class="hero">
+      <div>
+        <h1 id="h-beranda">Sumber belajar kampus dalam satu tempat</h1>
+        <p class="lede">Portal ini menghimpun kelas daring, koleksi perpustakaan digital, repositori bahan ajar, dan video pembelajaran bagi mahasiswa dan dosen STISPOL Wira Bhakti Denpasar.</p>
+        <div class="notice">
+          <strong>Tahap percontohan</strong>
+          Saat ini portal diterapkan pada Program Studi Administrasi Bisnis. Perluasan ke Program Studi Administrasi Publik dan Pariwisata direncanakan pada Semester Genap 2026/2027.
+        </div>
+      </div>
+      <ul class="index" id="home-index"></ul>
+    </div>
+  </section>
+
+  <!-- E-LEARNING -->
+  <section id="elearning" aria-labelledby="h-el" hidden>
+    <h2 id="h-el">E-Learning</h2>
+    <p class="lede">Kelas daring dikelola melalui Google Classroom. Pilih kelas sesuai mata kuliah yang Anda ambil, lalu masuk menggunakan akun Google.</p>
+    <div id="el-list"></div>
+  </section>
+
+  <!-- PERPUSTAKAAN -->
+  <section id="perpustakaan" aria-labelledby="h-pd" hidden>
+    <h2 id="h-pd">Perpustakaan Digital</h2>
+    <p class="lede">Basis data jurnal, buku elektronik, data, dan peraturan yang dapat diakses mahasiswa secara gratis.</p>
+    <div class="filter" role="group" aria-label="Saring jenis sumber" id="lib-filter"></div>
+    <div class="grid2" id="lib-list"></div>
+  </section>
+
+  <!-- REPOSITORI -->
+  <section id="repositori" aria-labelledby="h-rp" hidden>
+    <h2 id="h-rp">Repositori</h2>
+    <p class="lede">Kumpulan RPS, bahan ajar, abstrak skripsi, dan publikasi dosen, disusun per program studi.</p>
+    <div id="repo-list"></div>
+    <div class="prodi">
+      <div class="prodi-head"><h3>Struktur repositori</h3></div>
+      <div class="tree" style="margin-top:1rem">
+        <ul>
+          <li>Portal Sumber Pembelajaran Digital STISPOL Wira Bhakti
+            <ul>
+              <li>00 Panduan &amp; Informasi Portal</li>
+              <li>01 Administrasi Publik <ul><li>01 RPS</li><li>02 Modul &amp; Bahan Ajar</li><li>03 Materi Perkuliahan</li><li>04 Referensi &amp; Bacaan</li><li>05 Tugas, Kasus &amp; Media Pembelajaran</li></ul></li>
+              <li>02 Administrasi Bisnis <ul><li>01 RPS</li><li>02 Modul &amp; Bahan Ajar</li><li>03 Materi Perkuliahan</li><li>04 Referensi &amp; Bacaan</li><li>05 Tugas, Kasus &amp; Media Pembelajaran</li></ul></li>
+              <li>03 Pariwisata <ul><li>01 RPS</li><li>02 Modul &amp; Bahan Ajar</li><li>03 Materi Perkuliahan</li><li>04 Referensi &amp; Bacaan</li><li>05 Tugas, Kasus &amp; Media Pembelajaran</li></ul></li>
+              <li>04 E-Library &amp; Repository</li>
+              <li>05 Open Educational Resources (OER)</li>
+              <li>06 Bukti Pengelolaan &amp; Evaluasi</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <p class="meta" style="margin-top:.75rem">Naskah skripsi lengkap diunggah sesuai kebijakan izin publikasi kampus.</p>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" aria-labelledby="h-vd" hidden>
+    <h2 id="h-vd">Video Pembelajaran</h2>
+    <p class="lede">Rekaman perkuliahan, materi singkat, dan panduan penggunaan portal, disusun dalam playlist per program studi.</p>
+    <div class="video-frame" id="video-frame"></div>
+    <div id="video-list" style="margin-top:1.5rem"></div>
+  </section>
+
+  <!-- PANDUAN -->
+  <section id="panduan" aria-labelledby="h-pg" hidden>
+    <h2 id="h-pg">Panduan &amp; Layanan</h2>
+    <p class="lede">Langkah penggunaan portal, pertanyaan yang sering diajukan, dan saluran layanan.</p>
+
+    <div class="grid2">
+      <div>
+        <h3>Bergabung ke kelas daring</h3>
+        <ol class="steps">
+          <li>Siapkan akun Google (Gmail) aktif.</li>
+          <li>Buka menu E-Learning dan pilih kelas sesuai mata kuliah Anda.</li>
+          <li>Tekan tombol Buka kelas, lalu pilih Gabung. Jika diminta, masukkan kode kelas dari dosen pengampu.</li>
+          <li>Gunakan nama lengkap sesuai data akademik agar dosen dapat mengenali Anda.</li>
+        </ol>
+
+        <h3 style="margin-top:1.75rem">Mengakses e-Resources Perpusnas</h3>
+        <ol class="steps">
+          <li>Daftar sebagai anggota Perpustakaan Nasional secara daring.</li>
+          <li>Masuk ke laman e-Resources menggunakan nomor anggota.</li>
+          <li>Cari jurnal atau buku elektronik melalui kolom pencarian, lalu unduh sesuai ketentuan penggunaan.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Pertanyaan yang sering diajukan</h3>
+        <details>
+          <summary>Apakah portal ini berbayar?</summary>
+          <p>Tidak. Seluruh layanan yang ditautkan dapat digunakan tanpa biaya.</p>
+        </details>
+        <details>
+          <summary>Kelas mata kuliah saya belum tersedia.</summary>
+          <p>Portal masih dalam tahap percontohan. Hubungi dosen pengampu atau pengelola portal untuk informasi jadwal ketersediaan kelas.</p>
+        </details>
+        <details>
+          <summary>Bagaimana jika tautan tidak dapat dibuka?</summary>
+          <p>Laporkan melalui formulir masukan atau email pengelola dengan menyebutkan nama halaman dan tautan yang bermasalah.</p>
+        </details>
+        <details>
+          <summary>Bolehkah menyebarkan bahan ajar di luar kampus?</summary>
+          <p>Bahan ajar disediakan untuk keperluan pembelajaran sivitas akademika. Kutip sumbernya bila digunakan dalam tugas atau karya ilmiah.</p>
+        </details>
+
+        <h3 style="margin-top:1.75rem">Masukan dan kontak</h3>
+        <p class="meta" style="margin:.25rem 0 .9rem">Isi survei singkat untuk membantu pengembangan portal.</p>
+        <div id="survey-btn"></div>
+        <p class="meta" style="margin:1.25rem 0 .9rem">Dokumen panduan dan informasi portal tersedia dalam satu folder.</p>
+        <div id="panduan-btn"></div>
+        <p class="meta" id="contact-line" style="margin-top:1rem"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <span>© <span id="yr"></span> STISPOL Wira Bhakti Denpasar</span>
+    <span id="foot-contact"></span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   PENGATURAN ISI PORTAL
+   Ganti tautan kosong ('') dengan tautan sebenarnya. Tautan kosong
+   otomatis ditampilkan sebagai "Tautan menyusul".
+   ===================================================================== */
+const CONFIG = {
+  kontak: {
+    email: 'info@stispolwb.ac.id',
+    telepon: '(0361) 235778',
+    alamat: 'Jalan Cempaka No. 6, Denpasar',
+    website: 'https://stispolwb.ac.id'
+  },
+  surveiUrl: '',            // Google Form survei kepuasan pengguna
+  prodi: [
+    {
+      nama: 'Administrasi Bisnis',
+      aktif: true,
+      kelas: [
+        { mk: 'Manajemen Sumber Daya Manusia', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar 14 pertemuan', url: '' },
+        { mk: 'Manajemen Koperasi', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS, bahan ajar 14 pertemuan, dan studi kasus', url: '' },
+        { mk: 'Teori Pengambilan Keputusan', dosen: 'A.A. Neva Eka Pratiwi, S.E., M.M.', isi: 'RPS dan bahan ajar (bertahap)', url: '', materi: 'https://drive.google.com/drive/folders/1hlOac7Xy9B6ro0pYb8luCQh5Im9sJAqV' }
+      ],
+      repo: [
+        ['RPS', 'Rencana Pembelajaran Semester mata kuliah percontohan.', 'https://drive.google.com/drive/folders/1KP1-myhkCTPeGVYd8DaKCDW_Oj0mSsMx'],
+        ['Modul & Bahan Ajar', 'Modul dan bahan ajar per mata kuliah.', 'https://drive.google.com/drive/folders/1GU57JIuhXs7YdNDU2PTxO-A279ILda-l'],
+        ['Materi Perkuliahan', 'Materi dan slide presentasi per pertemuan.', 'https://drive.google.com/drive/folders/1hlOac7Xy9B6ro0pYb8luCQh5Im9sJAqV'],
+        ['Referensi & Bacaan', 'Bacaan wajib dan pendukung perkuliahan.', 'https://drive.google.com/drive/folders/13NEe9PzB88Z7RiKNwGUBg-O-lefbwpVh'],
+        ['Tugas, Kasus & Media Pembelajaran', 'Lembar tugas, studi kasus, dan media pendukung.', 'https://drive.google.com/drive/folders/1JcXvV-ICEZ-RZ_5f2-Ob7ZFpLoB-6b3A']
+      ]
+    },
+    { nama: 'Administrasi Publik', aktif: false, kelas: [], repo: [] },
+    { nama: 'Pariwisata', aktif: false, kelas: [], repo: [] }
+  ],
+  publikasiDosenUrl: '',
+  portalFolderUrl: 'https://drive.google.com/drive/folders/1Sp-yEfsPOGrXrZ4BvnEwV_cZuGi4M6Cb',
+  repoUmum: [
+    ['E-Library & Repositori', 'Koleksi buku elektronik, skripsi, dan karya ilmiah.', 'https://drive.google.com/drive/folders/1JTMaSbi7dlQbwYakIiWgmeBF78uX8yOD'],
+    ['Open Educational Resources (OER)', 'Bahan ajar terbuka dari sumber resmi dan perguruan tinggi lain.', 'https://drive.google.com/drive/folders/1sr7QOsLqGsolbZLztVb_fLiAFme16sRQ']
+  ],
+  panduanFolderUrl: 'https://drive.google.com/drive/folders/1CT_9q_iIVH_fnU6ozrXjQrAJSPcLgDYL',
+  perpustakaan: [
+    { nama: 'e-Resources Perpusnas', jenis: 'Jurnal & e-book', url: 'https://e-resources.perpusnas.go.id', desk: 'Jurnal dan buku elektronik internasional yang dilanggan Perpustakaan Nasional.', catatan: 'Perlu mendaftar sebagai anggota Perpusnas.' },
+    { nama: 'iPusnas', jenis: 'Jurnal & e-book', url: 'https://ipusnas.id', desk: 'Aplikasi peminjaman buku elektronik berbahasa Indonesia.' },
+    { nama: 'Garuda', jenis: 'Jurnal & e-book', url: 'https://garuda.kemdikbud.go.id', desk: 'Indeks dan arsip artikel jurnal ilmiah nasional.' },
+    { nama: 'SINTA', jenis: 'Indeks & referensi', url: 'https://sinta.kemdikbud.go.id', desk: 'Indeks jurnal terakreditasi nasional serta profil peneliti.' },
+    { nama: 'DOAJ', jenis: 'Jurnal & e-book', url: 'https://doaj.org', desk: 'Direktori jurnal internasional akses terbuka.' },
+    { nama: 'Google Scholar', jenis: 'Indeks & referensi', url: 'https://scholar.google.com', desk: 'Mesin pencari literatur ilmiah lintas penerbit.' },
+    { nama: 'Badan Pusat Statistik', jenis: 'Data & peraturan', url: 'https://www.bps.go.id', desk: 'Data statistik resmi untuk tugas dan penelitian.' },
+    { nama: 'JDIH BPK', jenis: 'Data & peraturan', url: 'https://peraturan.bpk.go.id', desk: 'Basis data peraturan perundang-undangan Indonesia.' }
+  ],
+  video: {
+    kanalUrl: '',           // tautan kanal YouTube kampus
+    embedId: '',            // ID video YouTube untuk ditampilkan (mis. dQw4w9WgXcQ)
+    playlist: [
+      { judul: 'Cara Menggunakan Portal Sumber Belajar', url: '' },
+      { judul: 'Playlist Administrasi Bisnis', url: '' }
+    ]
+  }
+};
+
+/* ===================== Tampilan (tidak perlu diubah) ===================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const btn = (url, label) => url
+  ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`
+  : `<span class="btn off" aria-disabled="true">Tautan menyusul</span>`;
+const pending = 'Dalam pengembangan, Semester Genap 2026/2027';
+
+/* Beranda */
+const totalKelas = CONFIG.prodi.reduce((n,p)=>n+p.kelas.length,0);
+const homeItems = [
+  ['#elearning','E-Learning','Kelas daring per mata kuliah melalui Google Classroom.', `${totalKelas} kelas`],
+  ['#perpustakaan','Perpustakaan Digital','Jurnal, buku elektronik, data, dan peraturan.', `${CONFIG.perpustakaan.length} sumber`],
+  ['#repositori','Repositori','RPS, bahan ajar, skripsi, dan publikasi dosen.', `${CONFIG.prodi.length} prodi`],
+  ['#video','Video Pembelajaran','Rekaman materi dan panduan penggunaan.', ''],
+  ['#panduan','Panduan & Layanan','Cara penggunaan, FAQ, dan formulir masukan.', '']
+];
+$('#home-index').innerHTML = homeItems.map(([h,t,d,c]) =>
+  `<li><a href="${h}"><span class="idx-title">${t}</span><span class="idx-desc">${d}</span><span class="idx-count">${c}</span></a></li>`).join('');
+
+/* E-Learning */
+$('#el-list').innerHTML = CONFIG.prodi.map(p => `
+  <div class="prodi">
+    <div class="prodi-head"><h3>${esc(p.nama)}</h3>
+      <span class="status ${p.aktif?'live':''}">${p.aktif?'Tersedia':pending}</span></div>
+    ${p.kelas.length ? p.kelas.map(k => `
+      <div class="row">
+        <div><h3>${esc(k.mk)}</h3>
+          <p>${esc(k.isi)}</p>
+          <span class="meta">Dosen pengampu: ${esc(k.dosen)}</span></div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">${k.materi?`<a class="btn" style="background:var(--surface);color:var(--maroon)" href="${esc(k.materi)}" target="_blank" rel="noopener">Lihat materi</a>`:''}${btn(k.url,'Buka kelas')}</div>
+      </div>`).join('')
+    : `<div class="empty">Kelas daring untuk program studi ini sedang disiapkan.</div>`}
+  </div>`).join('');
+
+/* Perpustakaan */
+const jenisList = ['Semua', ...new Set(CONFIG.perpustakaan.map(r=>r.jenis))];
+let jenisAktif = 'Semua';
+function renderLib(){
+  $('#lib-filter').innerHTML = jenisList.map(j =>
+    `<button type="button" aria-pressed="${j===jenisAktif}" data-j="${esc(j)}">${esc(j)}</button>`).join('');
+  $('#lib-list').innerHTML = CONFIG.perpustakaan
+    .filter(r => jenisAktif==='Semua' || r.jenis===jenisAktif)
+    .map(r => `<div class="res">
+      <a class="res-name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.nama)}</a>
+      <p>${esc(r.desk)}</p>${r.catatan?`<p class="note">${esc(r.catatan)}</p>`:''}</div>`).join('');
+}
+$('#lib-filter').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  jenisAktif = b.dataset.j; renderLib();
+  const nb = $(`#lib-filter button[data-j="${CSS.escape(jenisAktif)}"]`); if(nb) nb.focus();
+});
+renderLib();
+
+/* Repositori */
+$('#repo-list').innerHTML = CONFIG.prodi.map(p => `
+  <div class="prodi">
+    <div class="prodi-head"><h3>${esc(p.nama)}</h3>
+      <span class="status ${p.aktif?'live':''}">${p.aktif?'Tersedia':pending}</span></div>
+    ${p.aktif ? p.repo
+      .map(([t,d,u]) => `<div class="row"><div><h3>${t}</h3><p>${d}</p></div>${btn(u,'Buka folder')}</div>`).join('')
+      : `<div class="empty">Koleksi program studi ini sedang disiapkan.</div>`}
+  </div>`).join('') + `
+  <div class="prodi">
+    <div class="prodi-head"><h3>Koleksi umum</h3><span class="status live">Tersedia</span></div>
+    ${CONFIG.repoUmum.map(([t,d,u]) => `<div class="row"><div><h3>${t}</h3><p>${d}</p></div>${btn(u,'Buka folder')}</div>`).join('')}
+    <div class="row"><div><h3>Publikasi Dosen</h3><p>Artikel jurnal, prosiding, dan buku karya dosen.</p></div>${btn(CONFIG.publikasiDosenUrl,'Buka folder')}</div>
+    <div class="row"><div><h3>Seluruh isi repositori</h3><p>Folder induk Portal Sumber Pembelajaran Digital.</p></div>${btn(CONFIG.portalFolderUrl,'Buka folder induk')}</div>
+  </div>`;
+
+/* Video */
+$('#video-frame').innerHTML = CONFIG.video.embedId
+  ? `<iframe src="https://www.youtube-nocookie.com/embed/${esc(CONFIG.video.embedId)}" title="Video pembelajaran" allowfullscreen></iframe>`
+  : `<div><strong style="color:var(--ink)">Video pertama sedang disiapkan</strong><br>Panduan penggunaan portal akan ditampilkan di sini.</div>`;
+$('#video-list').innerHTML = CONFIG.video.playlist.map(v =>
+  `<div class="row"><div><h3>${esc(v.judul)}</h3></div>${btn(v.url,'Tonton')}</div>`).join('') +
+  `<div class="row"><div><h3>Kanal YouTube kampus</h3><p>Seluruh video pembelajaran STISPOL Wira Bhakti.</p></div>${btn(CONFIG.video.kanalUrl,'Buka kanal')}</div>`;
+
+/* Panduan & footer */
+$('#survey-btn').innerHTML = btn(CONFIG.surveiUrl,'Isi survei');
+$('#panduan-btn').innerHTML = btn(CONFIG.panduanFolderUrl,'Buka dokumen panduan');
+const k = CONFIG.kontak;
+$('#contact-line').innerHTML = `Pengelola portal: <a href="mailto:${esc(k.email)}">${esc(k.email)}</a> · ${esc(k.telepon)}<br>${esc(k.alamat)}`;
+$('#foot-contact').innerHTML = `<a href="${esc(k.website)}" target="_blank" rel="noopener">Website resmi</a>`;
+$('#yr').textContent = new Date().getFullYear();
+
+/* Navigasi */
+const ids = ['beranda','elearning','perpustakaan','repositori','video','panduan'];
+function route(){
+  const id = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'beranda';
+  ids.forEach(s => document.getElementById(s).hidden = s!==id);
+  document.querySelectorAll('nav.tabs a').forEach(a => {
+    if(a.getAttribute('href')==='#'+id) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+  });
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
